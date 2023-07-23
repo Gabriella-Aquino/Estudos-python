@@ -1,0 +1,6 @@
+print('-------------------------------------')
+print('         BEM VINDO AOS JOGOS         ')
+print('-------------------------------------')
+print('Veja a seguir sua lista de opções e digite o numero do jogo que desejar')
+print('')
+print('1- Adivinhação')
