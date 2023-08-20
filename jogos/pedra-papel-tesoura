@@ -1,0 +1,62 @@
+from random import randint
+from time import sleep
+
+sn = 1
+while sn == 1:
+    print('{:-^30}'.format(''))
+    print('{:^30}'.format('Pedra Papel Tesoura'))
+    print('{:-^30}'.format(''))
+    print('''Escolha sua opção:
+        [ 0 ] Pedra
+        [ 1 ] Papel
+        [ 2 ] Tesoura''')
+    op = int(input('Sua escolha: '))
+    opm = randint(0,2)
+    itens = ('Pedra', 'Papel', 'Tesoura')
+
+
+    #Validação
+    if (op == 0 or op == 1 or op == 2):
+        valido = True
+    else:
+        valido = False
+
+
+    #resultados
+    if valido == True:
+        #contagem JO KEN PO
+        print('JO')
+        sleep(0.5)
+        print('KEN')
+        sleep(0.5)
+        print('PO!')
+        sleep(0.5)
+        #verificar resultados
+        if opm == op:
+            resultado = 'EMPATE'
+        elif (op == 0 and opm == 2) or (op == 1 and opm == 0) or (op == 2 and opm == 1):
+            resultado = 'VITORIA'
+        else:
+            resultado = 'DERROTA'
+        #exibir resultados
+        print('''\033[1m-----------------------------
+Jogador: {}
+Maquina: {}'''.format(itens[op], itens[opm])) 
+        
+        if resultado == 'VITORIA':
+            print('\033[32m')
+        elif resultado == 'EMPATE':
+            print('\033[33m')
+        else:
+            print('\033[31m')
+
+        print('{}\033[m'.format(resultado))
+    else:
+        print('\033[31mO valor que você digitou é invalido\033[m')
+    print('-----------------------------\033[m')
+
+    #Jogar novamente?
+    print('''Quer jogar novamente?
+        1 - Sim     0 - Não''')
+    sn = int(input('Digite sua opção: '))
+ 
